@@ -14,7 +14,6 @@ var arrayFormsDrive = [];
 function newRocket() {
     var newIdRocket = document.getElementById("id_rocket").value;
     rockets[rockets.length] = new Rocket(newIdRocket);
-    //for
     var document, querySelector;
     ('input[name="potencia1"]:checked').value;
     rockets[rockets.length - 1].addDrive();
@@ -46,9 +45,23 @@ function generateContentFormDrive(numberForm) {
     var footerForm = "\n    </div>\n    <a id=\"delete_drive\" onclick=\"deleteFormDrive(" + numberForm + ")\"><i class=\"fas fa-times-circle\"></i></a>\n    </div>\n    ";
     return headerForm + inputsForm + footerForm;
 }
+function numerationContentFormDrive() {
+    if (arrayFormsDrive[arrayFormsDrive.length - 1]) { }
+}
 function newDriveAddFrom() {
-    arrayFormsDrive.push(new DriveAddForm(arrayFormsDrive.length, arrayFormsDrive.length, generateContentFormDrive(arrayFormsDrive.length)));
+    arrayFormsDrive.push(new DriveAddForm(arrayFormsDrive.length, generateContentFormDrive(arrayFormsDrive.length)));
     loadFormsDrive();
 }
 function deleteFormDrive(idForm) {
+    for (var i = 0; i < arrayFormsDrive.length; i++) {
+        var powerSelected = document.querySelector("input[name=potencia" + i + "]:checked").value;
+        arrayFormsDrive[i].powerSelected = powerSelected;
+    }
+    arrayFormsDrive.splice(idForm, 1);
+    for (var i = 0; i < arrayFormsDrive.length; i++) {
+        arrayFormsDrive[i].num = i;
+        arrayFormsDrive[i].content = generateContentFormDrive(i);
+    }
+    loadFormsDrive();
 }
+//# sourceMappingURL=input.js.map

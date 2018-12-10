@@ -125,7 +125,7 @@ function loadFormsDrive() {
 
     for (var i = 0; i < arrayFormsDrive.length; i++) {
     var nodeLi = document.createElement("li");
-    nodeLi.id = "form_drive_" + i;
+    nodeLi.id = "form_drive_" + arrayFormsDrive[i].num;
     nodeLi.className = "group_drive_cross";
     nodeLi.innerHTML = arrayFormsDrive[i].content;
     listFormsDrive.appendChild(nodeLi);
@@ -134,6 +134,7 @@ function loadFormsDrive() {
 
     
 }
+
 
 
 

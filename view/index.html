@@ -24,7 +24,7 @@
 
 </head>
 
-<body onload="loadContent(); addRocketOptions()">
+<body onload="loadContent(); addRocketOptions(); newDriveAddFrom();loadFormsDrive()">
 
     <header>
         <H1><i class="fas fa-rocket"></i> Coets</H1>
@@ -81,45 +81,7 @@
                             <input type="text" class="form-control" placeholder="Introdueix identificador... (mín. 8 caràcters)">
                         </div>
                         <ul id="list_forms_drives">
-                            <li id="form_drive_1" class="group_drive_cross">
-                                <H6>Propulsor 1</H6>
-                                <div class="btn-group btn-group-toggle from_drive" data-toggle="buttons">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">Potència Màxima</span>
-                                    </div>
-                                    <label class="btn btn-outline-primary active">
-                                        <input type="radio" name="potencia" value="10" autocomplete="off" checked>10
-                                    </label>
-                                    <label class="btn btn-outline-primary">
-                                        <input type="radio" name="potencia" value="20" autocomplete="off">20
-                                    </label>
-                                    <label class="btn btn-outline-primary">
-                                        <input type="radio" name="potencia" value="30" autocomplete="off">30
-                                    </label>
-                                    <label class="btn btn-outline-primary">
-                                        <input type="radio" name="potencia" value="40" autocomplete="off">40
-                                    </label>
-                                    <label class="btn btn-outline-primary">
-                                        <input type="radio" name="potencia" value="50" autocomplete="off">50
-                                    </label>
-                                    <label class="btn btn-outline-primary">
-                                        <input type="radio" name="potencia" value="60" autocomplete="off">60
-                                    </label>
-                                    <label class="btn btn-outline-primary">
-                                        <input type="radio" name="potencia" value="70" autocomplete="off">70
-                                    </label>
-                                    <label class="btn btn-outline-primary">
-                                        <input type="radio" name="potencia" value="80" autocomplete="off">80
-                                    </label>
-                                    <label class="btn btn-outline-primary">
-                                        <input type="radio" name="potencia" value="90" autocomplete="off">90
-                                    </label>
-                                    <label class="btn btn-outline-primary">
-                                        <input type="radio" name="potencia" value="100" autocomplete="off">100
-                                    </label>
-                                </div>
-
-                            </li>
+                            
 
                         </ul>
                         <p id="add_drive" class="icon plus" onclick="newDriveAddFrom()">Afegir propulsor</p>

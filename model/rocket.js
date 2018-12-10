@@ -1,4 +1,4 @@
-var Rocket = /** @class */ (function () {
+var Rocket = (function () {
     function Rocket(id) {
         this.drives = [];
         this.actualVelocity = 0;
@@ -46,3 +46,4 @@ var Rocket = /** @class */ (function () {
     };
     return Rocket;
 }());
+//# sourceMappingURL=rocket.js.map

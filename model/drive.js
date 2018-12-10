@@ -1,4 +1,4 @@
-var Drive = /** @class */ (function () {
+var Drive = (function () {
     function Drive(id, maxPower) {
         this.actualPower = 0;
         this.id = id;
@@ -22,3 +22,4 @@ var Drive = /** @class */ (function () {
     };
     return Drive;
 }());
+//# sourceMappingURL=drive.js.map

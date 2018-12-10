@@ -45,7 +45,7 @@ function slowDownRocket() {
     }
 }
 
-function generateContentFormDrive(numberForm){
+function generateContentFormDrive(numberForm) {
     let headerForm = `
     <H6>Propulsor ${numberForm}</H6>
     <div class="btn-group btn-group-toggle from_drive" data-toggle="buttons">
@@ -57,14 +57,14 @@ function generateContentFormDrive(numberForm){
     </label>
     `;
     let inputsForm = "";
-    for (var i = 20; i <= 100; i+=10) {
+    for (var i = 20; i <= 100; i += 10) {
         inputsForm += `
         <label class="btn btn-outline-primary">
         <input type="radio" name="potencia${numberForm}" value="${i}" autocomplete="off">${i}
         </label>
         `;
     }
-    let footerForm =`
+    let footerForm = `
     </div>
     <a id="delete_drive" onclick="deleteFormDrive(${numberForm})"><i class="fas fa-times-circle"></i></a>
     </div>
@@ -73,13 +73,33 @@ function generateContentFormDrive(numberForm){
     return headerForm + inputsForm + footerForm;
 }
 
+function numerationContentFormDrive() {
+    if (arrayFormsDrive[arrayFormsDrive.length - 1]) { }
+
+}
+
 function newDriveAddFrom() {
-    arrayFormsDrive.push(new DriveAddForm(arrayFormsDrive.length,arrayFormsDrive.length,generateContentFormDrive(arrayFormsDrive.length)));
+    arrayFormsDrive.push(new DriveAddForm(arrayFormsDrive.length, generateContentFormDrive(arrayFormsDrive.length)));
     loadFormsDrive();
 }
 
-function deleteFormDrive(idForm) {
-    
+function deleteFormDrive(idForm: number) {
+
+
+    for (var i = 0; i < arrayFormsDrive.length; i++) {
+        let powerSelected = document.querySelector("input[name=potencia" + i + "]:checked").value;
+        arrayFormsDrive[i].powerSelected = powerSelected;
+    }
+
+    arrayFormsDrive.splice(idForm, 1);
+
+    for (var i = 0; i < arrayFormsDrive.length; i++) {
+        arrayFormsDrive[i].num = i;
+        arrayFormsDrive[i].content = generateContentFormDrive(i);
+    }
+    loadFormsDrive();
+
 }
+
 
 

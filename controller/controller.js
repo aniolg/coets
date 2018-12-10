@@ -1,32 +1,3 @@
-/*
-//Accelerar 3 cops
-for (var i = 0; i < 3; i++) {
-    rockets[0].accelerate();
-    rockets[1].accelerate();
-}
-rockets[0].getActualVelocity();
-rockets[1].getActualVelocity();
-//alert (`Velocitat coet ${rockets[0].id}: ${rockets[0].actualVelocity} || Velocitat coet ${rockets[1].id}: ${rockets[1].actualVelocity}`);
-
-//Frena 5 cops
-for (var i = 0; i < 5; i++) {
-    rockets[0].slowDown();
-    rockets[1].slowDown();
-}
-rockets[0].getActualVelocity();
-rockets[1].getActualVelocity();
-//alert (`Velocitat coet ${rockets[0].id}: ${rockets[0].actualVelocity} || Velocitat coet ${rockets[1].id}: ${rockets[1].actualVelocity}`);
-
-//Accelerar 15 cops
-for (var i = 0; i < 15; i++) {
-    rockets[0].accelerate();
-    rockets[1].accelerate();
-}
-rockets[0].getActualVelocity();
-rockets[1].getActualVelocity();
-//alert (`Velocitat coet ${rockets[0].id}: ${rockets[0].actualVelocity} || Velocitat coet ${rockets[1].id}: ${rockets[1].actualVelocity}`);
-
-*/
 function powerIcon(driveI) {
     if (driveI.actualPower == driveI.maxPower) {
         return "fa-battery-full";
@@ -61,9 +32,6 @@ function loadContent() {
     rocketNodeList.innerHTML = contentRocketList();
     if (divRockets.hasChildNodes()) {
         var contentDiv = document.getElementById("rocket_list");
-        //contentDiv.innerHTML = 
-        //contentDiv.remove();
-        //divRockets.removeChild(contentDiv);
         divRockets.replaceChild(rocketNodeList, contentDiv);
     }
     else {
@@ -85,9 +53,10 @@ function loadFormsDrive() {
     }
     for (var i = 0; i < arrayFormsDrive.length; i++) {
         var nodeLi = document.createElement("li");
-        nodeLi.id = "form_drive_" + i;
+        nodeLi.id = "form_drive_" + arrayFormsDrive[i].num;
         nodeLi.className = "group_drive_cross";
         nodeLi.innerHTML = arrayFormsDrive[i].content;
         listFormsDrive.appendChild(nodeLi);
     }
 }
+//# sourceMappingURL=controller.js.map
