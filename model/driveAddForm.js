@@ -1,9 +1,9 @@
-var DriveAddForm = /** @class */ (function () {
-    function DriveAddForm(num, posActual, content) {
+var DriveAddForm = (function () {
+    function DriveAddForm(num, content) {
         this.powerSelected = 10;
         this.num = num;
-        this.posActual = posActual;
         this.content = content;
     }
     return DriveAddForm;
 }());
+//# sourceMappingURL=driveAddForm.js.map
