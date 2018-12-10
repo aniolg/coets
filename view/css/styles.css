@@ -1,0 +1,79 @@
+header{
+    color:#fff;
+    background-color: #495057;
+    text-align: center;
+    padding: 20px;
+}
+
+header .fa-rocket{
+    color:#28a9ff;
+}
+
+.button_content{
+    display:flex;
+    justify-content:flex-end;
+    padding-top:30px;
+}
+
+#div_coets{
+    padding: 20px 0 20px 0;
+}
+
+#div_coets .fa-space-shuttle{
+    color:#28a9ff;
+}
+
+.badge-pill {
+    display: block !important;
+}
+
+.fa-battery-half{
+    color:#ffc107;
+}
+
+.fa-battery-full{
+    color:#dc3545;
+}
+
+.group_drive_cross{
+    display:block;
+    margin-bottom: 1rem;
+}
+
+.form_drive{
+   
+    display: inline-block !important;
+}
+.icon::before {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    padding-right: 10px;
+    vertical-align:middle;
+  }
+
+.plus::before{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 1.5rem;
+    content: "\f055";
+}
+#delete_drive:hover, #add_drive:hover{
+    color:#005ec2;
+    cursor:pointer;
+}
+
+#delete_drive, #add_drive{
+    color:#007bff
+    
+}
+
+#add_drive{
+    margin-top:20px;
+}
+
+#delete_drive{
+    padding: 10px;
+}

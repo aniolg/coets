@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Rockets Excercise</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
+    <link href="icon/css/all.css" rel="stylesheet">
+
+    <script src="../model/drive.js"></script>
+    <script src="../model/rocket.js"></script>
+    <script src="../model/driveAddForm.js"></script>
+    <script src="../controller/input.js"></script>
+    <script src="../controller/controller.js"></script>
+
+    <script src="js/jquery.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</head>
+
+<body onload="loadContent(); addRocketOptions()">
+
+    <header>
+        <H1><i class="fas fa-rocket"></i> Coets</H1>
+    </header>
+
+
+
+    <!-- Content -->
+    <div class="content container">
+
+        <!-- Button New Rocket (trigger modal) -->
+        <div class="button_content">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#new_rockets_modal">
+                <i class="fas fa-plus"></i> Crear nou coet
+            </button>
+        </div>
+
+        <!-- Coets -->
+        <div id="div_coets"></div>
+
+        <div id="forms_velocity">
+            <div class="input-group" id="form_rocket">
+                <select class="form-control" id="rocket_select" name="drives_select">
+                </select>
+                <div class="input-group-append">
+                    <button class="btn btn-success" onclick="accelerateRocket()"><i class="fas fa-angle-double-up"></i> Accelerar</button>
+                    <button class="btn btn-danger" onclick="slowDownRocket()"><i class="fas fa-angle-double-down"></i> Frenar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--New Rocket Form (modal) -->
+    <div class="modal fade" id="new_rockets_modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+
+                <!-- Formulari -->
+                <form action="" target="_top">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="new_rocket_tittle">Nou Coet</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">ID</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Introdueix identificador... (mín. 8 caràcters)">
+                        </div>
+                        <ul id="list_forms_drives">
+                            <li id="form_drive_1" class="group_drive_cross">
+                                <H6>Propulsor 1</H6>
+                                <div class="btn-group btn-group-toggle from_drive" data-toggle="buttons">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">Potència Màxima</span>
+                                    </div>
+                                    <label class="btn btn-outline-primary active">
+                                        <input type="radio" name="potencia" value="10" autocomplete="off" checked>10
+                                    </label>
+                                    <label class="btn btn-outline-primary">
+                                        <input type="radio" name="potencia" value="20" autocomplete="off">20
+                                    </label>
+                                    <label class="btn btn-outline-primary">
+                                        <input type="radio" name="potencia" value="30" autocomplete="off">30
+                                    </label>
+                                    <label class="btn btn-outline-primary">
+                                        <input type="radio" name="potencia" value="40" autocomplete="off">40
+                                    </label>
+                                    <label class="btn btn-outline-primary">
+                                        <input type="radio" name="potencia" value="50" autocomplete="off">50
+                                    </label>
+                                    <label class="btn btn-outline-primary">
+                                        <input type="radio" name="potencia" value="60" autocomplete="off">60
+                                    </label>
+                                    <label class="btn btn-outline-primary">
+                                        <input type="radio" name="potencia" value="70" autocomplete="off">70
+                                    </label>
+                                    <label class="btn btn-outline-primary">
+                                        <input type="radio" name="potencia" value="80" autocomplete="off">80
+                                    </label>
+                                    <label class="btn btn-outline-primary">
+                                        <input type="radio" name="potencia" value="90" autocomplete="off">90
+                                    </label>
+                                    <label class="btn btn-outline-primary">
+                                        <input type="radio" name="potencia" value="100" autocomplete="off">100
+                                    </label>
+                                </div>
+
+                            </li>
+
+                        </ul>
+                        <p id="add_drive" class="icon plus" onclick="newDriveAddFrom()">Afegir propulsor</p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel·lar</button>
+                        <input type="submit" class="btn btn-primary" value="Crear el coet!">
+                    </div>
+
+                </form><!-- Formulari -->
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+
+</html>
