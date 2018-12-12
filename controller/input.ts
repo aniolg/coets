@@ -17,11 +17,13 @@ let arrayFormsDrive = [];
 
 function newRocket() {
     let newIdRocket = document.getElementById("id_rocket").value;
-    rockets[rockets.length] = new Rocket(newIdRocket);
+    rockets.push(new Rocket(newIdRocket));
     //for
-    let document.querySelector('input[name="potencia1"]:checked').value;
-    rockets[rockets.length - 1].addDrive();
-
+    for (var i = 0; i < arrayFormsDrive.length; i++) {
+        let maxPowerDrive = document.querySelector(`input[name="potencia${i}"]:checked`).value;
+        rockets[rockets.length - 1].addDrive("P" + i + "_" + rockets[rockets.length - 1].id, maxPowerDrive);
+    }
+    
 }
 
 
@@ -35,6 +37,7 @@ function accelerateRocket() {
     }
 }
 
+
 function slowDownRocket() {
     let optionSelected = document.getElementById("rocket_select").value;
     for (var i = 0; i < rockets.length; i++) {
@@ -45,7 +48,8 @@ function slowDownRocket() {
     }
 }
 
-function generateInputsDriveForm(numberForm: number, changeContent:boolean) {
+
+function generateInputsDriveForm(numberForm: number, changeContent: boolean) {
     let inputsForm = "";
 
     for (var i = 10; i <= 100; i += 10) {
@@ -55,12 +59,12 @@ function generateInputsDriveForm(numberForm: number, changeContent:boolean) {
             <input type="radio" name="potencia${numberForm}" value="${i}" autocomplete="off" checked>${i}
             </label>
             `;
-        }else if (changeContent === false && i == 10){
+        } else if (changeContent === false && i == 10) {
             inputsForm += `
             <label class="btn btn-outline-primary active">
             <input type="radio" name="potencia${numberForm}" value="${i}" autocomplete="off" checked>${i}
             </label>
-            `;    
+            `;
         } else {
             inputsForm += `
             <label class="btn btn-outline-primary">
@@ -74,9 +78,7 @@ function generateInputsDriveForm(numberForm: number, changeContent:boolean) {
 }
 
 
-
-
-function generateContentFormDrive(numberForm: number, changeContent:boolean) {
+function generateContentFormDrive(numberForm: number, changeContent: boolean) {
     let headerForm = `
     <H6>Propulsor ${numberForm}</H6>
     <div class="btn-group btn-group-toggle from_drive" data-toggle="buttons">
@@ -93,20 +95,15 @@ function generateContentFormDrive(numberForm: number, changeContent:boolean) {
     return headerForm + generateInputsDriveForm(numberForm, changeContent) + footerForm;
 }
 
-function numerationContentFormDrive() {
-    if (arrayFormsDrive[arrayFormsDrive.length - 1]) { }
-
-}
 
 function newDriveAddFrom() {
-    
-    arrayFormsDrive.push(new DriveAddForm(arrayFormsDrive.length, generateContentFormDrive(arrayFormsDrive.length,false)));
-    
+    arrayFormsDrive.push(new DriveAddForm(arrayFormsDrive.length, generateContentFormDrive(arrayFormsDrive.length, false)));
+
     loadFormsDrive();
 }
 
-function deleteFormDrive(idForm: number) {
 
+function deleteFormDrive(idForm: number) {
 
     for (var i = 0; i < arrayFormsDrive.length; i++) {
         let powerSelected = document.querySelector("input[name=potencia" + i + "]:checked").value;

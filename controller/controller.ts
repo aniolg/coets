@@ -87,10 +87,6 @@ function loadContent() {
 
     if (divRockets.hasChildNodes()){
         var contentDiv = document.getElementById("rocket_list");
-        
-        //contentDiv.innerHTML = 
-        //contentDiv.remove();
-        //divRockets.removeChild(contentDiv);
         divRockets.replaceChild(rocketNodeList,contentDiv);
 
     }else{
@@ -133,6 +129,21 @@ function loadFormsDrive() {
 
 
     
+}
+
+function addRocket(){
+    newRocket();
+
+    $('#new_rockets_modal').modal('hide');
+
+    while (arrayFormsDrive.firstChild) {
+        arrayFormsDrive.removeChild(arrayFormsDrive.firstChild);
+    }
+
+    loadFormsDrive();
+    addRocketOptions();
+    loadContent();
+
 }
 
 

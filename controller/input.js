@@ -13,10 +13,11 @@ rockets[1].addDrive("P6_" + rockets[1].id, 10);
 var arrayFormsDrive = [];
 function newRocket() {
     var newIdRocket = document.getElementById("id_rocket").value;
-    rockets[rockets.length] = new Rocket(newIdRocket);
-    var document, querySelector;
-    ('input[name="potencia1"]:checked').value;
-    rockets[rockets.length - 1].addDrive();
+    rockets.push(new Rocket(newIdRocket));
+    for (var i = 0; i < arrayFormsDrive.length; i++) {
+        var maxPowerDrive = document.querySelector("input[name=\"potencia" + i + "\"]:checked").value;
+        rockets[rockets.length - 1].addDrive("P" + i + "_" + rockets[rockets.length - 1].id, maxPowerDrive);
+    }
 }
 function accelerateRocket() {
     var optionSelected = document.getElementById("rocket_select").value;
@@ -55,9 +56,6 @@ function generateContentFormDrive(numberForm, changeContent) {
     var headerForm = "\n    <H6>Propulsor " + numberForm + "</H6>\n    <div class=\"btn-group btn-group-toggle from_drive\" data-toggle=\"buttons\">\n    <div class=\"input-group-prepend\">\n        <span class=\"input-group-text\" id=\"basic-addon1\">Pot\u00E8ncia M\u00E0xima</span>\n    </div>";
     var footerForm = "\n    </div>\n    <a id=\"delete_drive\" onclick=\"deleteFormDrive(" + numberForm + ")\"><i class=\"fas fa-times-circle\"></i></a>\n    </div>\n    ";
     return headerForm + generateInputsDriveForm(numberForm, changeContent) + footerForm;
-}
-function numerationContentFormDrive() {
-    if (arrayFormsDrive[arrayFormsDrive.length - 1]) { }
 }
 function newDriveAddFrom() {
     arrayFormsDrive.push(new DriveAddForm(arrayFormsDrive.length, generateContentFormDrive(arrayFormsDrive.length, false)));

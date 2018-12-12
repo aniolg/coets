@@ -8,19 +8,19 @@
     <title>Rockets Excercise</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
-    <link href="icon/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="view/css/styles.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="view/css/bootstrap.min.css">
+    <link href="view/icon/css/all.css" rel="stylesheet">
 
-    <script src="../model/drive.js"></script>
-    <script src="../model/rocket.js"></script>
-    <script src="../model/driveAddForm.js"></script>
-    <script src="../controller/input.js"></script>
-    <script src="../controller/controller.js"></script>
+    <script src="./model/drive.js"></script>
+    <script src="./model/rocket.js"></script>
+    <script src="./model/driveAddForm.js"></script>
+    <script src="./controller/input.js"></script>
+    <script src="./controller/controller.js"></script>
 
-    <script src="js/jquery.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="view/js/jquery.slim.min.js"></script>
+    <script src="view/js/popper.min.js"></script>
+    <script src="view/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -63,7 +63,7 @@
             <div class="modal-content">
 
                 <!-- Formulari -->
-                <form action="" target="_top">
+                <form action="javascript:addRocket()" target="_top">
 
                     <div class="modal-header">
                         <h5 class="modal-title" id="new_rocket_tittle">Nou Coet</h5>
@@ -78,7 +78,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">ID</span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Introdueix identificador... (mín. 8 caràcters)">
+                            <input type="text" class="form-control" id="id_rocket" placeholder="Introdueix identificador... (mín. 8 caràcters)">
                         </div>
                         <ul id="list_forms_drives">
                             

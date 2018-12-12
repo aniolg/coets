@@ -59,4 +59,14 @@ function loadFormsDrive() {
         listFormsDrive.appendChild(nodeLi);
     }
 }
+function addRocket() {
+    newRocket();
+    $('#new_rockets_modal').modal('hide');
+    while (arrayFormsDrive.firstChild) {
+        arrayFormsDrive.removeChild(arrayFormsDrive.firstChild);
+    }
+    loadFormsDrive();
+    addRocketOptions();
+    loadContent();
+}
 //# sourceMappingURL=controller.js.map
