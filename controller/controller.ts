@@ -99,15 +99,66 @@ function loadContent() {
 }
 
 function addRocketOptions() {
+    let rocketSelect = document.getElementById("rocket_select");
+    
+    while (rocketSelect.firstChild) {
+        rocketSelect.removeChild(rocketSelect.firstChild);
+    }
+
     for (var i = 0; i < rockets.length; i++) {
-            var rocketNodeOption = document.createElement("option");
+            let rocketNodeOption = document.createElement("option");
             rocketNodeOption.value = rockets[i].id;
             rocketNodeOption.innerHTML = rockets[i].id;
-            document.getElementById("rocket_select").appendChild(rocketNodeOption);
+            rocketSelect.appendChild(rocketNodeOption);
     }
 }
 
 
+function generateInputsDriveForm(numberForm: number, changeContent: boolean) {
+    let inputsForm = "";
+
+    for (var i = 10; i <= 100; i += 10) {
+        if (changeContent === true && arrayFormsDrive[numberForm].powerSelected == i) {
+            inputsForm += `
+            <label class="btn btn-outline-primary active">
+            <input type="radio" name="potencia${numberForm}" value="${i}" autocomplete="off" checked>${i}
+            </label>
+            `;
+        } else if (changeContent === false && i == 10) {
+            inputsForm += `
+            <label class="btn btn-outline-primary active">
+            <input type="radio" name="potencia${numberForm}" value="${i}" autocomplete="off" checked>${i}
+            </label>
+            `;
+        } else {
+            inputsForm += `
+            <label class="btn btn-outline-primary">
+            <input type="radio" name="potencia${numberForm}" value="${i}" autocomplete="off">${i}
+            </label>
+            `;
+        }
+    }
+
+    return inputsForm;
+}
+
+
+function generateContentFormDrive(numberForm: number, changeContent: boolean) {
+    let headerForm = `
+    <H6>Propulsor ${numberForm}</H6>
+    <div class="btn-group btn-group-toggle from_drive" data-toggle="buttons">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Potència Màxima</span>
+    </div>`;
+
+    let footerForm = `
+    </div>
+    <a id="delete_drive" onclick="deleteFormDrive(${numberForm})"><i class="fas fa-times-circle"></i></a>
+    </div>
+    `;
+
+    return headerForm + generateInputsDriveForm(numberForm, changeContent) + footerForm;
+}
 
 
 function loadFormsDrive() {
@@ -126,24 +177,21 @@ function loadFormsDrive() {
     nodeLi.innerHTML = arrayFormsDrive[i].content;
     listFormsDrive.appendChild(nodeLi);
     }
-
-
     
 }
+
 
 function addRocket(){
     newRocket();
 
     $('#new_rockets_modal').modal('hide');
 
-    while (arrayFormsDrive.firstChild) {
-        arrayFormsDrive.removeChild(arrayFormsDrive.firstChild);
-    }
-
+    arrayFormsDrive = [];
+    newDriveAddFrom();
     loadFormsDrive();
+
     addRocketOptions();
     loadContent();
-
 }
 
 

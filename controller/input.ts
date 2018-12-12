@@ -49,51 +49,6 @@ function slowDownRocket() {
 }
 
 
-function generateInputsDriveForm(numberForm: number, changeContent: boolean) {
-    let inputsForm = "";
-
-    for (var i = 10; i <= 100; i += 10) {
-        if (changeContent === true && arrayFormsDrive[numberForm].powerSelected == i) {
-            inputsForm += `
-            <label class="btn btn-outline-primary active">
-            <input type="radio" name="potencia${numberForm}" value="${i}" autocomplete="off" checked>${i}
-            </label>
-            `;
-        } else if (changeContent === false && i == 10) {
-            inputsForm += `
-            <label class="btn btn-outline-primary active">
-            <input type="radio" name="potencia${numberForm}" value="${i}" autocomplete="off" checked>${i}
-            </label>
-            `;
-        } else {
-            inputsForm += `
-            <label class="btn btn-outline-primary">
-            <input type="radio" name="potencia${numberForm}" value="${i}" autocomplete="off">${i}
-            </label>
-            `;
-        }
-    }
-
-    return inputsForm;
-}
-
-
-function generateContentFormDrive(numberForm: number, changeContent: boolean) {
-    let headerForm = `
-    <H6>Propulsor ${numberForm}</H6>
-    <div class="btn-group btn-group-toggle from_drive" data-toggle="buttons">
-    <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">Potència Màxima</span>
-    </div>`;
-
-    let footerForm = `
-    </div>
-    <a id="delete_drive" onclick="deleteFormDrive(${numberForm})"><i class="fas fa-times-circle"></i></a>
-    </div>
-    `;
-
-    return headerForm + generateInputsDriveForm(numberForm, changeContent) + footerForm;
-}
 
 
 function newDriveAddFrom() {
