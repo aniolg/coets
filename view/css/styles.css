@@ -3,16 +3,21 @@ header{
     background-color: #495057;
     text-align: center;
     padding: 20px;
+    display:flex !important;
+    justify-content:space-between;
 }
 
 header .fa-rocket{
-    color:#28a9ff;
+    color:#007bff;
 }
 
-.button_content{
-    display:flex;
-    justify-content:flex-end;
-    padding-top:30px;
+h1{
+    display:inline !important;
+    flex-grow:1;
+}
+
+#forms_velocity{
+    padding-top:40px;
 }
 
 #div_coets{
@@ -20,7 +25,7 @@ header .fa-rocket{
 }
 
 #div_coets .fa-space-shuttle{
-    color:#28a9ff;
+    color:#6c757d;
 }
 
 .badge-pill {
