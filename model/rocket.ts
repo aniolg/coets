@@ -4,7 +4,6 @@ class Rocket {
     checkedId: string;
     numDrives: number;
     drives: Drive[] = [];
-    actualVelocity = 0;
 
     constructor(id: string) {
         this.id = id;
@@ -15,14 +14,10 @@ class Rocket {
     }
 
     idChecker(idIn: string) {
-        var e;
         if (idIn.length >= 8) {
             return idIn;
         } else {
-
-                throw e = new Error("La ID del coet " + idIn + " és massa curta! (introdueixi una ID de mínim 8 caràcters)");
-                
-                return e;
+            throw new Error("La ID del coet " + idIn + " és massa curta! (introdueixi una ID de mínim 8 caràcters)");
         }
     }
 
@@ -31,31 +26,32 @@ class Rocket {
         ++this.numDrives;
     }
 
-    accelerate() {
+    accelerate(increment:number) {
         for (var i = 0; i < this.drives.length; i++) {
             if (this.drives[i].actualPower < this.drives[i].maxPower) {
-                this.drives[i].increasePower();
+                this.drives[i].increasePower(increment);
+
                 i = this.drives.length;
             }
         }
     }
 
-    slowDown() {
+    slowDown(decrement:number) {
         for (var i = this.drives.length - 1; i >= 0; i--) {
             if (this.drives[i].actualPower > 0) {
-                this.drives[i].decreasePower();
+                this.drives[i].decreasePower(decrement);
                 i = -1;
             }
         }
     }
 
     getActualVelocity() {
-    this.actualVelocity = 0;
+        let actualVelocity = 0;
+
         for (var i = 0; i < this.drives.length; i++) {
-            this.actualVelocity += this.drives[i].actualPower;
+            actualVelocity += this.drives[i].actualPower;
         }
-        return this.actualVelocity;
+
+        return actualVelocity;
     }
-
-
 }
