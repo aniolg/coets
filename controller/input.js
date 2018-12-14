@@ -19,20 +19,20 @@ function newRocket() {
         rockets[rockets.length - 1].addDrive("P" + i + "_" + rockets[rockets.length - 1].id, maxPowerDrive);
     }
 }
-function accelerateRocket() {
+function accelerateRocket(increment) {
     var optionSelected = document.getElementById("rocket_select").value;
     for (var i = 0; i < rockets.length; i++) {
         if (rockets[i].id == optionSelected) {
-            rockets[i].accelerate();
+            rockets[i].accelerate(increment);
             loadContent();
         }
     }
 }
-function slowDownRocket() {
+function slowDownRocket(decrement) {
     var optionSelected = document.getElementById("rocket_select").value;
     for (var i = 0; i < rockets.length; i++) {
         if (rockets[i].id == optionSelected) {
-            rockets[i].slowDown();
+            rockets[i].slowDown(decrement);
             loadContent();
         }
     }

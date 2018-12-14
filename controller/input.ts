@@ -27,22 +27,22 @@ function newRocket() {
 }
 
 
-function accelerateRocket() {
+function accelerateRocket(increment:number) {
     let optionSelected = document.getElementById("rocket_select").value;
     for (var i = 0; i < rockets.length; i++) {
         if (rockets[i].id == optionSelected) {
-            rockets[i].accelerate();
+            rockets[i].accelerate(increment);
             loadContent();
         }
     }
 }
 
 
-function slowDownRocket() {
+function slowDownRocket(decrement:number) {
     let optionSelected = document.getElementById("rocket_select").value;
     for (var i = 0; i < rockets.length; i++) {
         if (rockets[i].id == optionSelected) {
-            rockets[i].slowDown();
+            rockets[i].slowDown(decrement);
             loadContent();
         }
     }
