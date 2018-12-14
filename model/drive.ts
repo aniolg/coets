@@ -9,21 +9,20 @@ class Drive {
         this.maxPower = maxPower;
     }
 
-    increasePower() {
+    increasePower(increment:number) {
         if (this.actualPower < this.maxPower) {
-            this.actualPower += 10;
+            this.actualPower += increment;
         } else {
             alert(`No es pot accelerar més el propulsor! La seva Potència Màxima és: ${this.maxPower}`);
         }
     }
 
-    decreasePower() {
+    decreasePower(decrement:number) {
         if (this.actualPower > 0) {
-            this.actualPower -= 10;
+            this.actualPower -= decrement;
         } else {
             alert(`El propulsor ja està a Potència 0.`);
         }
     }
 
 }
-
