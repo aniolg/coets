@@ -21,7 +21,7 @@ class Rocket {
         }
     }
 
-    addDrive(idDrive, maxPowerDrive) {
+    addDrive(idDrive:string, maxPowerDrive:number) {
         this.drives.push(new Drive(idDrive, maxPowerDrive));
         ++this.numDrives;
     }
