@@ -5,7 +5,7 @@ var Drive = (function () {
         this.maxPower = maxPower;
     }
     Drive.prototype.increasePower = function (increment) {
-        if (this.actualPower < this.maxPower) {
+        if (this.actualPower < this.maxPower && increment <= this.maxPower) {
             this.actualPower += increment;
         }
         else {
@@ -13,8 +13,11 @@ var Drive = (function () {
         }
     };
     Drive.prototype.decreasePower = function (decrement) {
-        if (this.actualPower > 0) {
+        if (this.actualPower > 0 && decrement <= this.actualPower) {
             this.actualPower -= decrement;
+        }
+        else if (this.actualPower > 0 && decrement > this.actualPower) {
+            this.actualPower = 0;
         }
         else {
             alert("El propulsor ja est\u00E0 a Pot\u00E8ncia 0.");
